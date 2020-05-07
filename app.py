@@ -5,17 +5,25 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Mock OAuth Server'
+    return """
+<h1>nOAuth: a Mock OAuth Server you shouldn't ever use in production</h1>
+"""
 
 @app.route('/authorize', methods=["GET"])
 def authorize():
+    if ("redirect_uri" not in request.args) or ("state" not in request.args):
+        return "Need redirect_uri and state parameteres"
+    
     redirect_uri = request.args["redirect_uri"]
     state = request.args["state"]
     return f"""
+<h1>You're not running this in production, are you?</h1>
+<iframe src='https://gfycat.com/ifr/HonorableSameCaudata' frameborder='0' scrolling='no' width='640' height='503'></iframe>
+<br><br>
 <form method="post" action="">
 <input type="hidden" name="state" value="{state}">
 <input type="hidden" name="redirect_uri" value="{redirect_uri}">
-<input type="text" name="email">
+email: <input type="text" name="email">
 <input type="submit">
 </form>"""
 

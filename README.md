@@ -1,6 +1,7 @@
-# Mock OAuth Server
+# nOAuth
 
-This is an OAuth server to be used for TESTING ONLY!
+This is an OAuth server that performs zero actual authentication and
+is to be used for TESTING ONLY!
 
 It has no state, and does just enough to be a valid oauth2 server as
 far as standard oauth libraries are concerned.
@@ -9,7 +10,7 @@ Run this with:
 
 ```
 pipenv install
-FLASK_ENV=production PORT=<port> pipenv run python app.py
+PORT=<port> pipenv run python app.py
 ```
 
 The OAuth URLs are:
@@ -18,6 +19,6 @@ The OAuth URLs are:
 * `/oauth/token`
 * `/userinfo`
 
-This only does OAuth2 bearer tokens and lets you authenticate as any email address.
+This only does OAuth2 bearer tokens and lets you fake authentication as any email address.
 
 
