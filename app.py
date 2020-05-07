@@ -12,7 +12,7 @@ def index():
 @app.route('/authorize', methods=["GET"])
 def authorize():
     if ("redirect_uri" not in request.args) or ("state" not in request.args):
-        return "Need redirect_uri and state parameteres"
+        return "Need redirect_uri and state parameters"
     
     redirect_uri = request.args["redirect_uri"]
     state = request.args["state"]
