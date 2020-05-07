@@ -44,7 +44,7 @@ def token():
 @app.route('/userinfo')
 def userinfo():
     email = request.headers['Authorization'].split(' ')[1]
-    return jsonify(email=email)
+    return jsonify(email=email.lower())
 
 if __name__ == "__main__":
     app.run(
