@@ -9,8 +9,8 @@ far as standard oauth libraries are concerned.
 Run this with:
 
 ```
-pipenv install
-PORT=<port> pipenv run python app.py
+poetry install
+PORT=<port> poetry run python app.py
 ```
 
 The OAuth URLs are:
