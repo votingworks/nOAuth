@@ -10,7 +10,7 @@ Run this with:
 
 ```
 poetry install
-PORT=<port> poetry run python app.py
+PORT=<port> poetry run python noauth.py
 ```
 
 The OAuth URLs are:
