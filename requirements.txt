@@ -4,4 +4,4 @@ itsdangerous==1.1.0;
 jinja2==2.11.3; 
 markupsafe==2.0.1; 
 werkzeug==1.0.1; 
-python_full_version >= "3.6.0";
+python_version==3.10.6;
