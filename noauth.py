@@ -18,12 +18,12 @@ def authorize():
     state = request.args["state"]
     return f"""
 <h1>You're not running this in production, are you?</h1>
-<iframe src='https://gfycat.com/ifr/HonorableSameCaudata' frameborder='0' scrolling='no' width='640' height='503'></iframe>
+<img src="https://media.tenor.com/Rj0tlPRW080AAAAC/curb-your-enthusiasm-larry-david.gif" />
 <br><br>
 <form method="post" action="">
 <input type="hidden" name="state" value="{state}">
 <input type="hidden" name="redirect_uri" value="{redirect_uri}">
-email: <input type="text" name="email">
+email: <input type="text" name="email" autofocus>
 <input type="submit">
 </form>"""
 
