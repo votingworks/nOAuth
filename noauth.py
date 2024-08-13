@@ -18,7 +18,7 @@ def authorize():
     state = request.args["state"]
     return f"""
 <h1>You're not running this in production, are you?</h1>
-<img src="https://media.tenor.com/Rj0tlPRW080AAAAC/curb-your-enthusiasm-larry-david.gif" />
+<img src="https://media1.tenor.com/m/vtgvGh5EuaQAAAAC/roll-safe-clever.gif"/>
 <br><br>
 <form method="post" action="">
 <input type="hidden" name="state" value="{state}">
