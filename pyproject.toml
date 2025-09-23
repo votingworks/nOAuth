@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nOAuth"
-version = "0.2.0"
+version = "0.3.0"
 description = "A simple oauth server that does NO real authentication and helps you test systems that depend on OAuth"
 authors = ["VotingWorks Eng <eng@voting.works>"]
 license = "GNU Affero General Public License v3.0"

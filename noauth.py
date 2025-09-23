@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, redirect
 import os
 from urllib.parse import urlencode
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -45,6 +46,40 @@ def token():
 def userinfo():
     email = request.headers['Authorization'].split(' ')[1]
     return jsonify(email=email.lower())
+
+@app.route('/.well-known/openid-configuration')
+def openid_configuration():
+    """
+    OpenID Connect Discovery endpoint
+    Returns the OpenID Connect configuration for this mock server
+    """
+    # Get the base URL from the request
+    base_url = request.url_root.rstrip('/')
+    
+    return jsonify({
+        "issuer": base_url,
+        "authorization_endpoint": f"{base_url}/authorize",
+        "token_endpoint": f"{base_url}/oauth/token",
+        "userinfo_endpoint": f"{base_url}/userinfo",
+        "jwks_uri": f"{base_url}/.well-known/jwks.json",
+        "response_types_supported": ["code"],
+        "subject_types_supported": ["public"],
+        "id_token_signing_alg_values_supported": ["none"],
+        "scopes_supported": ["openid", "email", "profile"],
+        "token_endpoint_auth_methods_supported": ["client_secret_post", "client_secret_basic"],
+        "claims_supported": ["email", "sub"],
+        "code_challenge_methods_supported": ["plain", "S256"]
+    })
+
+@app.route('/.well-known/jwks.json')
+def jwks():
+    """
+    JSON Web Key Set endpoint
+    Returns an empty key set since this is a mock server that doesn't use real JWTs
+    """
+    return jsonify({
+        "keys": []
+    })
 
 if __name__ == "__main__":
     app.run(
