@@ -45,7 +45,7 @@ def token():
 @app.route('/userinfo')
 def userinfo():
     email = request.headers['Authorization'].split(' ')[1]
-    return jsonify(email=email.lower())
+    return jsonify(email=email.lower(), email_verified=True)
 
 @app.route('/.well-known/openid-configuration')
 def openid_configuration():
@@ -67,7 +67,7 @@ def openid_configuration():
         "id_token_signing_alg_values_supported": ["none"],
         "scopes_supported": ["openid", "email", "profile"],
         "token_endpoint_auth_methods_supported": ["client_secret_post", "client_secret_basic"],
-        "claims_supported": ["email", "sub"],
+        "claims_supported": ["email", "email_verified", "sub"],
         "code_challenge_methods_supported": ["plain", "S256"]
     })
 
